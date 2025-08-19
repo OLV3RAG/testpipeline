@@ -1,6 +1,6 @@
-def call(Map mapas) {
+def call(Map config = [:]) {
     pipeline {
-        agent "${mapas.node}"
+        agent config.node ?: any
 
         options {
             timeout(time: 10, unit: 'MINUTES')
