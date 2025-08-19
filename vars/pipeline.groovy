@@ -1,6 +1,6 @@
-def call(Map config = [:]) {
+def call(String hola) {
     pipeline {
-        agent config.node ?: any
+        agent any
 
         options {
             timeout(time: 10, unit: 'MINUTES')
