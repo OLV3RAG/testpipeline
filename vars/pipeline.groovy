@@ -1,4 +1,4 @@
-def call(String hola) {
+def call(Map config = [:]) {
     pipeline {
         agent any
 
