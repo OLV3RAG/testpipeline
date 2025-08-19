@@ -1,4 +1,5 @@
-pipeline {
+def call(){
+    pipeline {
     agent any
 
     options {
@@ -43,4 +44,6 @@ pipeline {
             echo '❌ El pipeline falló.'
         }
     }
+}
+
 }
