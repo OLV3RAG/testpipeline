@@ -1,4 +1,5 @@
 def call() {
+    echo "corre libreria"
     pipeline {
         agent any
 
