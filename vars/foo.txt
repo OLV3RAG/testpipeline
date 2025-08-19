@@ -1,0 +1,4 @@
+This is the documentation for the global variable 'foo'.
+You can call it in your Jenkinsfile as:
+
+    foo("Hello World")
