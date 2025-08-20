@@ -2,14 +2,14 @@ def call() {
     pipeline {
         agent any
         options {
-            skipDefaultCheckout()  
-                    }
+            skipDefaultCheckout()
+        }
 
         stages {
             stage('Config Work') {
-                script{
-                    println ("CONFIG WORK")
-                }
+                steps {
+                    script {
+                        println("CONFIG WORK")
                     }
                 }
             }
@@ -46,3 +46,5 @@ def call() {
                 }
             }
         }
+    }
+}
