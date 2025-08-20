@@ -1,4 +1,6 @@
 def call() {
-    echo "🧪 Ejecutando Unit Tests..."
-    // tu lógica de pruebas aquí
+    println "🧪 [UnitTest] Ejecutando pruebas unitarias en Windows..."
+    // Ejecuta pruebas
+    bat 'npm test'
+    println "🧪 [UnitTest] Pruebas completadas."
 }

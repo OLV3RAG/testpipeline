@@ -27,7 +27,7 @@ def call() {
             stage('Notifications') {
                 steps {
                     script {
-                        notification_sendemail("Build & Deploy completados con éxito ✅")
+                        notification_sendemail("✅ Build & Deploy completados con éxito en Windows")
                     }
                 }
             }

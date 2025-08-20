@@ -1,4 +1,7 @@
 def call() {
-    echo "🔨 Ejecutando Build..."
-    // tu lógica aquí
+    println "📦 [Build] Iniciando construcción del proyecto en Windows..."
+    // Instala dependencias y compila
+    bat 'npm install'
+    bat 'npm run build'
+    println "📦 [Build] Construcción finalizada."
 }
