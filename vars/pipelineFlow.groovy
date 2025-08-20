@@ -1,49 +1,36 @@
-def call(){
+def call() {
     pipeline {
-    agent any
+        agent any
 
-    options {
-        timeout(time: 10, unit: 'MINUTES')
-    }
-
-    stages {
-        stage('Build') {
-            steps {
-                echo '🔨 Compilando la aplicación...'
-                // Cambia esto por el comando real para tu app
-                // sh './gradlew build' // para Java/Gradle
-                // sh 'python setup.py build' // para Python
-            }
+        options {
+            timeout(time: 10, unit: 'MINUTES')
         }
 
-        stage('Unit Tests') {
-            steps {
-                echo '🧪 Ejecutando pruebas...'
-                // Cambia esto por tu sistema de testing
-                // sh './gradlew test'
-                // sh 'pytest'
+        stages {
+            stage('Build') {
+                steps {
+                    script {
+                        build_construir()
+                        build_unittest()
+                    }
+                }
             }
-        }
 
-        stage('Deploy') {
-            when {
-                branch 'main'  // Solo desplegar desde main
+            stage('Deploy') {
+                steps {
+                    script {
+                        deploy_deployto()
+                    }
+                }
             }
-            steps {
-                echo '🚀 Desplegando la aplicación...'
-                // Simulación de deploy
+
+            stage('Notifications') {
+                steps {
+                    script {
+                        notification_sendemail("Build & Deploy completados con éxito ✅")
+                    }
+                }
             }
         }
     }
-
-    post {
-        success {
-            echo '✅ Pipeline completado con éxito.'
-        }
-        failure {
-            echo '❌ El pipeline falló.'
-        }
-    }
-}
-
 }
