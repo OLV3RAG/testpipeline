@@ -6,8 +6,15 @@ def call() {
             stage('Build') {
                 steps {
                     script {
-                        build.construir()
-                        build.unitTest()
+                        build.construir()  // Este aparecerá como stage "Build"
+                    }
+                }
+            }
+
+            stage('Unit Test') {
+                steps {
+                    script {
+                        build.unitTest()  // Este aparecerá como stage "Unit Test" separado
                     }
                 }
             }
