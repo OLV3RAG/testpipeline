@@ -2,16 +2,12 @@ def call() {
     pipeline {
         agent any
 
-        options {
-            timeout(time: 10, unit: 'MINUTES')
-        }
-
         stages {
             stage('Build') {
                 steps {
                     script {
-                        build_construir()
-                        build_unittest()
+                        construir()
+                        unit_test()
                     }
                 }
             }
@@ -19,7 +15,7 @@ def call() {
             stage('Deploy') {
                 steps {
                     script {
-                        deploy_deployto()
+                        deployto()
                     }
                 }
             }
@@ -27,7 +23,7 @@ def call() {
             stage('Notifications') {
                 steps {
                     script {
-                        notification_sendemail("✅ Build & Deploy completados con éxito en Windows")
+                        sendemail("✅ Build & Deploy completados con éxito en Windows")
                     }
                 }
             }
