@@ -7,7 +7,9 @@ def call() {
 
         stages {
             stage('Config Work') {
-                println "CONFIG WORK"
+                script{
+                    println ("CONFIG WORK")
+                }
                     }
                 }
             }
