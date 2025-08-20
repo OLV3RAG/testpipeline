@@ -6,8 +6,8 @@ def call() {
             stage('Build') {
                 steps {
                     script {
-                        construir()
-                        unit_test()
+                        build.construir()
+                        build.unitTest()
                     }
                 }
             }
@@ -15,7 +15,7 @@ def call() {
             stage('Deploy') {
                 steps {
                     script {
-                        deployto()
+                        deploy.deployTo()
                     }
                 }
             }
@@ -23,7 +23,7 @@ def call() {
             stage('Notifications') {
                 steps {
                     script {
-                        sendemail("✅ Build & Deploy completados con éxito en Windows")
+                        notification.sendEmail("✅ Pipeline ejecutado correctamente (simulado)")
                     }
                 }
             }
