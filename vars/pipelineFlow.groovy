@@ -2,14 +2,14 @@ def call() {
     pipeline {
         agent any
         options {
-            skipDefaultCheckout()  // ⚠️ Evita que Jenkins haga Checkout SCM automáticamente
-        }
+            skipDefaultCheckout()  
+                    }
 
         stages {
             stage('Config Work') {
                 steps {
                     script {
-                        configWork.setup()  // Ahora será el primer stage visible
+                        configWork.setup()  
                     }
                 }
             }
