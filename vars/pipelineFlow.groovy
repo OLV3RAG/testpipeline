@@ -1,21 +1,23 @@
 def call() {
     pipeline {
         agent any
-
-        stage('Config Work') {
-                steps {
-                    script {
-                        checkout scm   // Si necesitas los archivos
-                        configWork.setup()
+        options {
+            skipDefaultCheckout()  // ⚠️ Evita que Jenkins haga Checkout SCM automáticamente
         }
-    }
-}
 
         stages {
+            stage('Config Work') {
+                steps {
+                    script {
+                        configWork.setup()  // Ahora será el primer stage visible
+                    }
+                }
+            }
+
             stage('Build') {
                 steps {
                     script {
-                        build.construir()  // Este aparecerá como stage "Build"
+                        build.construir()
                     }
                 }
             }
@@ -23,7 +25,7 @@ def call() {
             stage('Unit Test') {
                 steps {
                     script {
-                        build.unitTest()  // Este aparecerá como stage "Unit Test" separado
+                        build.unitTest()
                     }
                 }
             }
