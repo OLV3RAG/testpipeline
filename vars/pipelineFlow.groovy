@@ -7,9 +7,7 @@ def call() {
 
         stages {
             stage('Config Work') {
-                steps {
-                    script {
-                        configWork.setup()  
+                println "CONFIG WORK"
                     }
                 }
             }
