@@ -1,6 +1,15 @@
 def call() {
     pipeline {
         agent any
+        
+stage('Config Work') {
+    steps {
+        script {
+            checkout scm   // Si necesitas los archivos
+            configWork.setup()
+        }
+    }
+}
 
         stages {
             stage('Build') {
